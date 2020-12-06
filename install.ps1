@@ -21,7 +21,7 @@
 param(
   [ValidateSet('AllUsersAllHosts', 'AllUsersCurrentHost', 'CurrentUserAllHosts', 'CurrentUserCurrentHost')]
   [string]$Scope = "CurrentUserAllHosts",
-  [Uri]$URL = 'https://github.com/TsekNet/PowerShell-Profile/raw/master/profile.ps1'
+  [Uri]$URL = 'https://github.com/thenorthie/PowerShell-Profile/raw/master/profile.ps1'
 )
 
 $profile_dir = Split-Path $PROFILE.$Scope
