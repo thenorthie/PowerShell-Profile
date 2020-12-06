@@ -223,7 +223,7 @@ function Edit-Profile {
     $psISE.CurrentPowerShellTab.Files.Add($profile)
   }
   else {
-    code-insiders $profile
+    code $profile
   }
 }
 
