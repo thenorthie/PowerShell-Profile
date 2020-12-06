@@ -145,6 +145,6 @@ $sl.PromptSymbols.PromptIndicator = [char]::ConvertFromUtf32(0x276F)
 $sl.PromptSymbols.SegmentBackwardSymbol = [char]::ConvertFromUtf32(0xE0B2)
 $sl.PromptSymbols.SegmentForwardSymbol = [char]::ConvertFromUtf32(0xE0B0)
 $sl.PromptSymbols.HeartSymbol = [char]::ConvertFromUtf32(0x2764)
-$sl.PromptSymbols.UnicornSymbol = [char]::ConvertFromUtf32(0x1F984)
+$sl.PromptSymbols.UnicornSymbol = [char]::ConvertFromUtf32(0xF984)
 $sl.PromptSymbols.WarningSymbol = [char]::ConvertFromUtf32(0x203C)
 $sl.PromptSymbols.StartSymbol = ''
