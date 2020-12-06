@@ -274,7 +274,7 @@ try {
   Clear-Host
 
   Write-Verbose '==Getting latest profile files from GitHub=='
-  Import-GitRepo -Owner tseknet -Repository PowerShell-Profile -FilePath `
+  Import-GitRepo -Owner thenorthie -Repository PowerShell-Profile -FilePath `
     'profile.ps1',
   'Themes/TsekNet.psm1' -ThemeName 'TsekNet'
 
