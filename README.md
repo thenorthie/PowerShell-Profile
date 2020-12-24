@@ -11,7 +11,7 @@ If you want to just get started with copying my homework run the following comma
 PowerShell as administrator:
 
 ```powershell
-iex ((New-Object Net.WebClient).DownloadString('https://github.com/tseknet/PowerShell-Profile/raw/master/install.ps1'))
+iex ((New-Object Net.WebClient).DownloadString('https://github.com/thenorthie/PowerShell-Profile/raw/master/install.ps1'))
 ```
 
 ⚠ As always, be sure you're aware of what you're downloading from the internet. You can view the source on GitHub and inspect the code prior to
