@@ -279,7 +279,7 @@ try {
   'Themes/TsekNet.psm1' -ThemeName 'TsekNet'
 
   Write-Verbose '==Importing modules required for profile=='
-  $my_modules = @('posh-git', 'oh-my-posh', 'Get-ChildItemColor', 'PSWriteHTML')
+  $my_modules = @('posh-git', 'oh-my-posh', 'Get-ChildItemColor', 'PSWriteHTML', 'AzureAD', 'MicrosoftTeams', 'ExchangeOnlineManagement')
   Import-MyModules -Modules $my_modules
 
   Write-Verbose '==Setting custom oh-my-posh theme=='
