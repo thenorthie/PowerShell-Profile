@@ -37,3 +37,6 @@ if (-not (Test-Path $profile_dir)) {
 [IO.File]::WriteAllLines($profile_file, $request.Content)
 Write-Verbose "Wrote profile file: $profile_file with content from: $URL"
 & $profile_file -Verbose
+
+Install-Module -Name "azuread" -Confirm:$False -Force
+Install-Module -Name "MicrosoftTeams" -Confirm:$False -Force
