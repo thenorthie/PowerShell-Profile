@@ -306,6 +306,7 @@ try {
   Set-Alias ll Get-ChildItemColor -Option AllScope
   Set-Alias ls Get-ChildItemColorFormatWide -Option AllScope
   Set-Alias History Open-HistoryFile -Option AllScope
+  Set-Alias 7z "C:\Progra~2\7-zip\7z.exe" -Option AllScope
 
   Write-Verbose '==Getting and displaying list of helper functions=='
   Get-ExportedFunctions
