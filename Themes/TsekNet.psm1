@@ -44,6 +44,11 @@ function Get-Elapsed {
   $Format -f $Duration
 }
 
+# Check if running in Windows Terminal or Powershell.exe 
+function Test-IsWindowsTerminal{
+[bool]($env:WT_Session)
+}
+
 function Write-Theme {
   param(
     [bool]
@@ -118,9 +123,11 @@ function Write-Theme {
   if ($with) {
     $prompt += Write-Prompt -Object "$($with.ToUpper()) " -BackgroundColor $sl.Colors.Magenta -ForegroundColor $sl.Colors.DarkRed
   }
-
-  $prompt += Write-Prompt -Object " $($sl.PromptSymbols.UnicornSymbol) " -BackgroundColor $sl.Colors.Gray
-  #$prompt += Write-Prompt -Object " $($sl.PromptSymbols.HeartSymbol) " -ForegroundColor $sl.Colors.Red -BackgroundColor $sl.Colors.Gray
+   if (Test-IsWindowsTerminal){
+      $prompt += Write-Prompt -Object " $($sl.PromptSymbols.UnicornSymbol) " -BackgroundColor $sl.Colors.Gray
+      }else{
+      $prompt += Write-Prompt -Object " $($sl.PromptSymbols.HeartSymbol) " -ForegroundColor $sl.Colors.Red -BackgroundColor $sl.Colors.Gray
+      }
   $prompt += Write-Prompt -Object "$($sl.PromptSymbols.SegmentForwardSymbol) " -ForegroundColor $sl.Colors.Gray
   $prompt += ' '
   $prompt
