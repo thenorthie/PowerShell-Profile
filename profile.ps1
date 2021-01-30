@@ -66,6 +66,11 @@ function Import-MyModules {
   }
 }
 
+# Helper function to test if profile is running in Windows Terminal or Regular PowerShell
+function Test-IsWindowsTerminal {
+[bool]($env:WT_Session)
+}
+
 # Helper function to test prompt elevation
 function Get-Elevation {
   [CmdletBinding()]
