@@ -1,0 +1,51 @@
+
+function NewTVMovies {
+    [CmdletBinding()]
+    Param(
+        # Parameter help description
+        [Parameter(Position=2, ValueFromPipeline=$true)]
+        $allrecentfolders,
+
+        [Parameter(Position=1, ValueFromPipeline=$true)]
+        [string[]]$SourcePath = "S:\torrents\seedroot\"
+         
+       
+    )
+    if (-not (test-path "$env:ProgramFiles\7-Zip\7z.exe")) {
+        Throw "$env:ProgramFiles\7-Zip\7z.exe needed"
+    }
+    
+    Set-Alias 7z "$env:ProgramFiles\7-Zip\7z.exe" -Force -Option AllScope
+
+    If ($allrecentfolders -eq "1") {
+        #get a list of recently created folders
+        $getfolderlist = Get-ChildItem -recurse -Path $SourcePath -Attributes Directory
+        $recentfolders = $getfolderlist | Where-Object CreationTime -gt (get-date).AddDays(-3)
+        #Display the recently created folders 
+        Write-Host "Found $($recentfolders.count) recently created folders" -ForegroundColor Green
+        ForEach ($folder in $recentfolders) {
+            Write-Host "$($folder.Name)" -ForegroundColor Yellow
+        }
+        #Look for .RAR files in each folder and extract them
+        foreach ($folder in $recentfolders) {
+            try {
+                Write-Host "Attempting to Extract files from $($folder.name)"
+                $path1 = "S:\torrents\seedroot\" + "$($folder.name)"
+                $command = "7z e $($path1)\*.rar -o$($path1) -y"
+                Invoke-Expression $command
+            }
+            catch {
+                Write-Host "There was an error, investigate further!"
+            }
+            
+        }
+    }else{
+        #look for .RAR files in a single directory and extract it.
+        Write-Host "$SourcePath"
+        Write-Host "Single Extraction"
+        $command = "7z e $sourcepath\$($Folder.name)*.rar"
+        Invoke-Expression $command
+    }
+    
+}
+NewTVMovies $allrecentfolders "1"
