@@ -37,6 +37,11 @@ function Set-Path {
   Set-Location $Path
 }
 
+Function Test-Administrator {
+    $AdminUserTest = [Security.Principal.WindowsIdentity]::GetCurrent();
+    (New-Object Security.Principal.WindowsPrincipal $AdminUserTest).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
+}
+
 # Helper function to ensure all modules are loaded, with error handling
 function Import-MyModules {
   [CmdletBinding()]
