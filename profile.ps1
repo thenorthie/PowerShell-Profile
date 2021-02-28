@@ -288,7 +288,7 @@ try {
   Import-MyModules -Modules $my_modules
 
   Write-Verbose '==Setting custom oh-my-posh theme=='
-  Set-Theme 'TsekNet' -Verbose:$false
+  Set-PoshPrompt 'TsekNet' -Verbose:$false
 
   Write-Verbose '==Checking console elevation=='
   Get-Elevation
